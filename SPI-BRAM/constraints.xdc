@@ -1,0 +1,10 @@
+create_clock -period 11.000 -name spi_clk -waveform {0.000 5.500} [get_ports spi_clk]
+set_input_delay -clock [get_clocks spi_clk] -min -add_delay 1.500 [get_ports resetn]
+set_input_delay -clock [get_clocks spi_clk] -max -add_delay 2.000 [get_ports resetn]
+set_input_delay -clock [get_clocks spi_clk] -min -add_delay 1.500 [get_ports spi_mosi]
+set_input_delay -clock [get_clocks spi_clk] -max -add_delay 2.000 [get_ports spi_mosi]
+set_input_delay -clock [get_clocks spi_clk] -min -add_delay 1.500 [get_ports spi_ss_n]
+set_input_delay -clock [get_clocks spi_clk] -max -add_delay 2.000 [get_ports spi_ss_n]
+set_output_delay -clock [get_clocks spi_clk] -min -add_delay -0.500 [get_ports spi_miso]
+set_output_delay -clock [get_clocks spi_clk] -max -add_delay 1.500 [get_ports spi_miso]
+
